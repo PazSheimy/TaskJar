@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+/*
+  TaskJar palette. Deliberately light-only for the landing page:
+  a green-biased off-white ground, lawn green for actions,
+  and yard-sign yellow for the one loud spot on the page.
+*/
+@theme inline {
+  --color-bg: #f6f8f4;
+  --color-bg-2: #eef2ea;
+  --color-ink: #1a221d;
+  --color-ink-2: #4a544e;
+  --color-muted: #7a847d;
+  --color-line: #d5dcd3;
+  --color-green: #2f6b3a;
+  --color-green-dark: #255630;
+  --color-sign: #f5c518;
+  --color-sign-ink: #1a1a10;
+
+  --font-display: var(--font-bricolage), "Arial Narrow", Arial, sans-serif;
+  --font-sans: var(--font-public-sans), "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+html {
+  color-scheme: light;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
