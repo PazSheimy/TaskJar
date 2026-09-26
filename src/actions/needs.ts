@@ -33,7 +33,8 @@ export async function saveNeed(
   if (!isCategory(category)) return { error: "Pick a category.", values };
   if (description.length < 10 || description.length > 2000)
     return { error: "Add a few more details (at least 10 characters).", values };
-  if (!ZIP_RE.test(zip)) return { error: "Zip code should be 5 digits.", values };
+  if (zip && !ZIP_RE.test(zip))
+    return { error: "Zip code should be 5 digits, or leave it empty.", values };
   if (!PAY_TYPES.has(payType)) return { error: "Pick how you want to pay.", values };
 
   let payAmount: number | null = null;
@@ -47,7 +48,7 @@ export async function saveNeed(
     title,
     category,
     description,
-    zip,
+    zip: zip || null,
     area: area || null,
     pay_type: payType,
     pay_amount: payAmount,

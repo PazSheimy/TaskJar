@@ -6,6 +6,19 @@ export function formatPay(payType: PayType, amount: number | null): string {
   return payType === "hourly" ? `${dollars}/hr` : dollars;
 }
 
+/** "33012 · Palm Springs North", "Palm Springs North", or "Remote or anywhere". */
+export function formatPlace(zip: string | null, area: string | null): string {
+  if (zip && area) return `${zip} · ${area}`;
+  return zip || area || "Remote or anywhere";
+}
+
+/** A helper's service area from their zip list. */
+export function formatZips(zips: string[], max = 3): string {
+  if (zips.length === 0) return "Remote or anywhere";
+  const shown = zips.slice(0, max).join(", ");
+  return zips.length > max ? `${shown} +${zips.length - max}` : shown;
+}
+
 export const STATUS_LABEL: Record<string, string> = {
   open: "Open",
   taken: "Taken",

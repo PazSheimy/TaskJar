@@ -16,7 +16,7 @@ export type Need = {
   title: string;
   category: string;
   description: string;
-  zip: string;
+  zip: string | null;
   area: string | null;
   pay_type: PayType;
   pay_amount: number | null;

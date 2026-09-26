@@ -15,7 +15,7 @@ import {
 } from "@/components/ui";
 import { getUser } from "@/lib/auth";
 import { categoryLabel } from "@/lib/categories";
-import { formatPay, STATUS_LABEL, timeAgo } from "@/lib/format";
+import { formatPay, formatPlace, STATUS_LABEL, timeAgo } from "@/lib/format";
 import { createClient } from "@/lib/supabase/server";
 import type { NeedWithOwner, ResponseRow } from "@/lib/types";
 
@@ -111,10 +111,7 @@ export default async function JobPage(props: PageProps<"/jobs/[id]">) {
         </div>
         <div>
           <dt className="font-mono text-xs uppercase tracking-wider text-muted">Where</dt>
-          <dd className="mt-0.5 font-semibold">
-            {need.zip}
-            {need.area ? ` · ${need.area}` : ""}
-          </dd>
+          <dd className="mt-0.5 font-semibold">{formatPlace(need.zip, need.area)}</dd>
         </div>
         <div>
           <dt className="font-mono text-xs uppercase tracking-wider text-muted">Posted by</dt>

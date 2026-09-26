@@ -35,8 +35,8 @@ export async function saveOffer(
     return { error: "Pick at least one category.", values };
   if (description.length < 10 || description.length > 2000)
     return { error: "Tell people a bit more about what you do (at least 10 characters).", values };
-  if (zips.length === 0 || zips.length > 10 || zips.some((z) => !ZIP_RE.test(z)))
-    return { error: "List 1 to 10 zip codes you serve, 5 digits each, separated by commas.", values };
+  if (zips.length > 10 || zips.some((z) => !ZIP_RE.test(z)))
+    return { error: "Zip codes should be 5 digits each, separated by commas, up to 10. Or leave it empty.", values };
 
   const supabase = await createClient();
   const { data, error } = await supabase

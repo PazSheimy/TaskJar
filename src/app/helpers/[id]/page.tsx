@@ -5,7 +5,7 @@ import { SubmitButton } from "@/components/submit-button";
 import { Avatar, btnSecondary, Pill } from "@/components/ui";
 import { getUser } from "@/lib/auth";
 import { categoryLabel } from "@/lib/categories";
-import { timeAgo } from "@/lib/format";
+import { formatZips, timeAgo } from "@/lib/format";
 import { createClient } from "@/lib/supabase/server";
 import type { OfferWithOwner } from "@/lib/types";
 
@@ -68,8 +68,8 @@ export default async function HelperPage(props: PageProps<"/helpers/[id]">) {
           <dd className="mt-0.5 font-semibold">{offer.availability ?? "Ask"}</dd>
         </div>
         <div>
-          <dt className="font-mono text-xs uppercase tracking-wider text-muted">Zip codes</dt>
-          <dd className="mt-0.5 font-semibold tabular-nums">{offer.zips.join(", ")}</dd>
+          <dt className="font-mono text-xs uppercase tracking-wider text-muted">Area</dt>
+          <dd className="mt-0.5 font-semibold tabular-nums">{formatZips(offer.zips, 10)}</dd>
         </div>
       </dl>
 

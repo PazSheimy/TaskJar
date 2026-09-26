@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Avatar, Pill } from "@/components/ui";
 import { categoryLabel } from "@/lib/categories";
+import { formatZips } from "@/lib/format";
 import type { OfferWithOwner } from "@/lib/types";
 
 export function OfferCard({ offer }: { offer: OfferWithOwner }) {
@@ -19,8 +20,7 @@ export function OfferCard({ offer }: { offer: OfferWithOwner }) {
           <p className="mt-1 text-sm text-ink-2">
             {name}
             {offer.rate_text ? ` · ${offer.rate_text}` : ""}
-            {offer.zips.length ? ` · ${offer.zips.slice(0, 3).join(", ")}` : ""}
-            {offer.zips.length > 3 ? ` +${offer.zips.length - 3}` : ""}
+            {` · ${formatZips(offer.zips)}`}
           </p>
           <div className="mt-2 flex flex-wrap gap-1.5">
             {offer.categories.slice(0, 4).map((c) => (

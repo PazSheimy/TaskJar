@@ -32,7 +32,7 @@ export default async function EditJobPage(props: PageProps<"/jobs/[id]/edit">) {
           title: need.title,
           category: need.category,
           description: need.description,
-          zip: need.zip,
+          zip: need.zip ?? "",
           area: need.area ?? "",
           pay_type: need.pay_type,
           pay_amount: need.pay_amount?.toString() ?? "",

@@ -86,11 +86,10 @@ export function NeedForm({ initial = {} }: { initial?: NeedInitial }) {
       </Field>
 
       <div className="grid gap-5 sm:grid-cols-2">
-        <Field label="Zip code" htmlFor="zip">
+        <Field label="Zip code" htmlFor="zip" hint="optional, leave empty if it can be done remotely">
           <input
             id="zip"
             name="zip"
-            required
             inputMode="numeric"
             pattern="[0-9]{5}"
             maxLength={5}

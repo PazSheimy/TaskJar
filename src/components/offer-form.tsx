@@ -110,11 +110,10 @@ export function OfferForm({
         </Field>
       </div>
 
-      <Field label="Zip codes you serve" htmlFor="zips" hint="up to 10, separated by commas">
+      <Field label="Zip codes you serve" htmlFor="zips" hint="optional, up to 10 separated by commas. Leave empty if you work remotely">
         <input
           id="zips"
           name="zips"
-          required
           defaultValue={v.zips}
           placeholder="33012, 33014, 33016"
           className={inputClass}

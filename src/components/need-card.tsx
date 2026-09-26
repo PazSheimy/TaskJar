@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Pill, statusTone } from "@/components/ui";
 import { categoryLabel } from "@/lib/categories";
-import { formatPay, STATUS_LABEL, timeAgo } from "@/lib/format";
+import { formatPay, formatPlace, STATUS_LABEL, timeAgo } from "@/lib/format";
 import type { NeedWithOwner } from "@/lib/types";
 
 export function NeedCard({ need }: { need: NeedWithOwner }) {
@@ -30,10 +30,7 @@ export function NeedCard({ need }: { need: NeedWithOwner }) {
             {formatPay(need.pay_type, need.pay_amount)}
           </span>
           {need.when_text && <span>{need.when_text}</span>}
-          <span>
-            {need.zip}
-            {need.area ? ` · ${need.area}` : ""}
-          </span>
+          <span>{formatPlace(need.zip, need.area)}</span>
           {need.owner?.name && <span>by {need.owner.name}</span>}
         </div>
       </Link>
