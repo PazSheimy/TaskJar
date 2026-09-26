@@ -1,6 +1,8 @@
-# Solvd — Launch Plan (zero budget until we have users)
+# TaskJar — Launch Plan (zero budget until we have users)
 
-Working name: **Solvd**. Started 2026-09-25.
+Public name: **TaskJar**. Started 2026-09-25.
+
+**Status (Sep 26, 2026):** version 1 is live at https://task-jar-seven.vercel.app. Accounts, jobs, helper offers, responses, messages, pick a helper, phone reveal on match. Not yet: photos, ratings, reporting, Google sign-in, email notifications. Waitlist page kept at /waitlist.
 
 ## What it is
 
