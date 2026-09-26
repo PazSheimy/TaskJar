@@ -1,7 +1,7 @@
 "use client";
 
 import { useActionState } from "react";
-import { joinWaitlist, type WaitlistState } from "@/app/actions";
+import { joinWaitlist, type WaitlistState } from "@/actions/waitlist";
 
 const ROLES = [
   { value: "need", label: "I need help with things" },

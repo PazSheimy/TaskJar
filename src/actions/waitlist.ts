@@ -1,10 +1,10 @@
 "use server";
 
 import { getAdminClient } from "@/lib/supabase/admin";
+import { EMAIL_RE } from "@/lib/form";
 
 export type WaitlistState = { ok: boolean; message: string } | null;
 
-const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const ROLES = new Set(["need", "earn", "both"]);
 
 export async function joinWaitlist(
@@ -17,7 +17,7 @@ export async function joinWaitlist(
   const role = String(formData.get("role") ?? "");
   const zip = String(formData.get("zip") ?? "").trim();
 
-  if (!EMAIL.test(email)) {
+  if (!EMAIL_RE.test(email)) {
     return {
       ok: false,
       message: "That email doesn’t look right. Check it and try again.",
