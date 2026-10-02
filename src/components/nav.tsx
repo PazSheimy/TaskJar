@@ -21,9 +21,6 @@ export async function Nav() {
           <Link href="/helpers" className="hover:text-ink">
             Helpers
           </Link>
-          <Link href="/money" className="hover:text-ink">
-            Money plan
-          </Link>
           {user && (
             <Link href="/messages" className="hover:text-ink">
               Messages
